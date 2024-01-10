@@ -70,4 +70,6 @@ dependencies {
     // debug
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+    // navigation
+    implementation(libs.androidx.navigation.compose)
 }

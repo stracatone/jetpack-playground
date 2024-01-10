@@ -16,6 +16,7 @@ nougat = "24"
 jvmTarget = "1.8"
 # @keep
 kotlinCompileExtension = "1.5.1"
+navigationCompose = "2.7.6"
 
 [libraries]
 androidx-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso-core" }
@@ -32,6 +33,7 @@ androidx-compose-material3 = { group = "androidx.compose.material3", name = "mat
 androidx-compose-ui-junit-test = { module = "androidx.compose.ui:ui-test-junit4" }
 androidx-compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest" }
 junit = { module = "junit:junit", version.ref = "junit" }
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
