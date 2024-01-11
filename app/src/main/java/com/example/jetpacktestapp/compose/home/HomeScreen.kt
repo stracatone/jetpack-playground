@@ -7,6 +7,8 @@ import android.content.Context.RECEIVER_EXPORTED
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.Build
+import android.telecom.TelecomManager
+import android.telephony.TelephonyManager
 import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
@@ -17,7 +19,7 @@ import androidx.compose.ui.platform.LocalContext
 @Composable
 fun HomeScreen(onItemClick: (String) -> Unit = {}) {
     val filter = IntentFilter()
-    filter.addAction(Intent.ACTION_CAMERA_BUTTON)
+    filter.addAction(TelephonyManager.ACTION_PHONE_STATE_CHANGED)
     val receiver = UnlockReceiver()
     LocalContext.current.registerReceiver(receiver, filter, RECEIVER_EXPORTED)
 }
@@ -25,7 +27,7 @@ fun HomeScreen(onItemClick: (String) -> Unit = {}) {
 
 class UnlockReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
-        if (intent.action != null && intent.action == Intent.ACTION_CAMERA_BUTTON) {
+        if (intent.action != null && intent.getAction().equals(TelephonyManager.ACTION_PHONE_STATE_CHANGED)) {
             // Device unlocked, perform actions here
             // For example, start a service or launch an activity
             Log.d("+++", "Phone unlocked")
