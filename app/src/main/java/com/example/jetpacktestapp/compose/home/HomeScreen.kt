@@ -1,13 +1,11 @@
 package com.example.jetpacktestapp.compose.home
 
-import android.app.Activity
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Context.RECEIVER_EXPORTED
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.Build
-import android.telecom.TelecomManager
 import android.telephony.TelephonyManager
 import android.util.Log
 import androidx.annotation.RequiresApi
@@ -27,9 +25,22 @@ fun HomeScreen(onItemClick: (String) -> Unit = {}) {
 
 class UnlockReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
-        if (intent.action != null && intent.getAction().equals(TelephonyManager.ACTION_PHONE_STATE_CHANGED)) {
+        if (intent.action != null && intent.action.equals(TelephonyManager.ACTION_PHONE_STATE_CHANGED)) {
+            Log.d("+++", "Data extra: ${intent.getStringExtra(TelephonyManager.EXTRA_STATE)}")
             // Device unlocked, perform actions here
             // For example, start a service or launch an activity
+            when(intent.getStringExtra(TelephonyManager.EXTRA_STATE)) {
+                TelephonyManager.EXTRA_STATE_RINGING -> {
+
+                }
+                TelephonyManager.EXTRA_STATE_OFFHOOK -> {
+
+                }
+                TelephonyManager.EXTRA_STATE_IDLE -> {
+
+                }
+            }
+
             Log.d("+++", "Phone unlocked")
         }
     }
