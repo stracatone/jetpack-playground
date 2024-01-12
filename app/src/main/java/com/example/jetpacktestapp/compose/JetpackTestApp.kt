@@ -1,5 +1,7 @@
 package com.example.jetpacktestapp.compose
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -8,12 +10,14 @@ import androidx.navigation.compose.rememberNavController
 import com.example.jetpacktestapp.compose.details.DetailsScreen
 import com.example.jetpacktestapp.compose.home.HomeScreen
 
+@RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable
 fun JetpackTestApp() {
     val navController = rememberNavController()
     JetpackTestNavHost(navController)
 }
 
+@RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable
 fun JetpackTestNavHost(navController: NavHostController) {
     NavHost(navController = navController, startDestination = Screen.Home.route) {
