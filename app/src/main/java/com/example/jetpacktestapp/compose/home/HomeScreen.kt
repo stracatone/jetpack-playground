@@ -18,11 +18,6 @@ import androidx.compose.ui.platform.LocalContext
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable
 fun HomeScreen(onItemClick: (String) -> Unit = {}) {
-    val filter = IntentFilter()
-    filter.addAction("android.provider.Telephony.SMS_RECEIVED")
-    val receiver = UnlockReceiver()
-    CalendarContract.Events.
-    LocalContext.current.registerReceiver(receiver, filter, RECEIVER_EXPORTED)
 }
 
 
