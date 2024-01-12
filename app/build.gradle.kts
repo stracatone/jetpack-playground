@@ -72,4 +72,7 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     // navigation
     implementation(libs.androidx.navigation.compose)
+    // work manager
+    // Kotlin + coroutines
+    implementation(libs.androidx.work.runtime.ktx)
 }
