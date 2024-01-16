@@ -1,5 +1,6 @@
 package com.example.jetpacktestapp
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -27,6 +28,8 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+        val intent = Intent(...) // Build the intent for the service
+        startForegroundService(intent)
     }
 }
 
